@@ -13,6 +13,9 @@ module.exports = async (client, message) => {
     if(message.channel.type == "DM") return client.channels.cache.get(config.channelID.dms).send(`${message.author.tag} (${message.author.id}): ${message.content}`)
     
     if(config.settings.admin.includes(message.author.id) && message.content.toLowerCase().startsWith('eval')) return client.commands.get('eval').run(client, message, message.content.split(/ +/))
+if(message.content == `<@${client.user.id}>` || message.content == `<@!${client.user.id}>`){
+    return message.reply(`**:wave: Hello __${message.author.username}__**, Im A Bot To Manage Servers And Create Server For You On **Artiom's Hosting!**\n ↳ Get Started using \`ah!help\` to see all my commands!`)
+  }))}
 
     if(message.channel.id === config.channelID.suggestions && !message.content.startsWith('>')){
         message.react('👍')
